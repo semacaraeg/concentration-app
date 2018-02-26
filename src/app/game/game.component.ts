@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { CardService } from '../card/card.service';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 
 @Component({
@@ -7,8 +14,8 @@ import { CardService } from '../card/card.service';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
+
 export class GameComponent implements OnInit {
-  cardDeckId : string;
   memory_cards = [];
   user_pick_counter = 0;
   user_cards = [];

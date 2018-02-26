@@ -10,3 +10,11 @@
 .img-card{
     width: 6em;
 }
+
+.new-game-button{
+    background-color: #ffffff;
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
