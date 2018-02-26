@@ -1,0 +1,12 @@
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 7.6%;
+}
+
+.img-card{
+    width: 6em;
+}

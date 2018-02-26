@@ -1,0 +1,27 @@
+{
+    "cards": [
+        {
+        "code": "QC", 
+        "images": {
+            "svg": "http://deckofcardsapi.com/static/img/QC.svg", 
+            "png": "http://deckofcardsapi.com/static/img/QC.png"
+            }, 
+        "suit": "CLUBS", 
+        "value": "QUEEN", 
+        "image": "http://deckofcardsapi.com/static/img/QC.png"
+        }, 
+        
+        {
+        "code": "3C", 
+        "images": {
+            "svg": "http://deckofcardsapi.com/static/img/3C.svg", 
+            "png": "http://deckofcardsapi.com/static/img/3C.png"
+        }, 
+        "suit": "CLUBS", 
+        "value": "3", "image": "http://deckofcardsapi.com/static/img/3C.png"
+        }
+        ], 
+        "deck_id": "susytsp1ysfr", 
+        "success": true, 
+        "remaining": 50
+}

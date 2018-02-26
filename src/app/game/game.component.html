@@ -1,0 +1,13 @@
+<p>
+  game works!
+</p>
+<!--div *ngFor="let card of _cards.cardDeck.cards">
+    <img [src]="card.image" />
+</div-->
+<button (click)="newGame()">NEW GAME </button>
+<div *ngIf = "memory_cards" class="cardContainer">
+  <div *ngFor="let card of memory_cards; let i = index" class="card">
+      
+      <img [src]="card.isFlipped ? card.img : '../assets/img/playing-card-back.png'" (click)="selectCard(card.value , i)" class="img-card" />
+  </div>
+</div>
