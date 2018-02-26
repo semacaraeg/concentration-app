@@ -10,15 +10,4 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'Concentration';
-  private apiUrl = 'https://deckofcardsapi.com/api/';
-  
-  getNewDeck(){
-    return this.apiUrl + "deck/new/shuffle/deck_count=1";
-    //return this.http.get(this.apiUrl + "deck/new/shuffle/deck_count=1");
-  }
-  
-  newGame(){
-    alert(this.getNewDeck());
-  }
-  
 }

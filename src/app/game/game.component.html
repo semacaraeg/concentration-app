@@ -1,13 +1,6 @@
-<!--div *ngFor="let card of _cards.cardDeck.cards">
-    <img [src]="card.image" />
-</div-->
 <div class="btn-div">
- <button (click)="newGame()" class="new-game-button">{{ buttonLabel }}</button> 
-</div>
-<div *ngIf = "deckCards" class="cardContainer">
-  <div *ngFor="let card of deckCards; let i = index" class="card">
-      <img [src]="card.isFlipped ? card.img : '../assets/img/playing-card-back.png'" (click)="selectCard(card , i)" class="img-card" [hidden] = "card.isMatched"/>
-  </div>
+ <button (click)="_cards.newGame()" class="new-game-button">{{ buttonLabel }}</button> 
+ <h2 *ngIf = "_cards.isGameOver" class="gameover">GAME OVER</h2>
 </div>
 
 

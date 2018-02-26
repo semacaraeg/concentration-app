@@ -6,27 +6,18 @@ import { Observable } from 'rxjs/Observable';
 export class CardService {
   
   cardDeck: any ;
-  cardDeckId : string;
+  //cardDeckId : string;
   
   constructor(private http: HttpClient) { 
   }
 
   apiUrl = 'https://deckofcardsapi.com/api/deck/new/draw/?count=52';
+  //apiUrl = 'https://deckofcardsapi.com/api/deck/new/';
   
- 
-  newData() {
-    return this.http.get(this.apiUrl);
-  }
-  
-   getCards() {
+  getCards() {
      this.http.get(this.apiUrl)
-       .subscribe(res => {
-          // console.log(res.cards) 
-           this.cardDeck = res 
-           console.log("CARD SERVICE"+this.cardDeck)
-       })
-       this.cardDeckId = this.cardDeck.deck_id;
+       .subscribe(res => this.cardDeck = res);
+       //this.cardDeckId = this.cardDeck.deck_id;
        //console.log("deck-id: " + this.cardDeckId);
    }
-   
 }

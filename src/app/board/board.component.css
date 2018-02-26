@@ -1,0 +1,37 @@
+.cardContainer{
+    perspective: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 7.6%;
+    margin: auto;
+}
+
+.img-card{
+    width: 6em;
+}
+
+.tp-card {
+  width: 7.6%;
+  height: 140px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+.tp-card__side {
+  width: 6em;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+.tp-card__front {
+  background-image: url("/assets/img/playing-card-back.png");
+  background-repeat: no-repeat;
+  background-size: 6em;
+}
+.tp-card__back {
+  background-size: 6em;
+  background-repeat: no-repeat;
+  transform: rotateY(179.9deg);
+}

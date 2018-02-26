@@ -1,14 +1,8 @@
-.cardContainer{
-    display: flex;
-    flex-wrap: wrap;
-}
 
-.card {
-    width: 7.6%;
-}
-
-.img-card{
-    width: 6em;
+.gameover{
+    margin-top: 50px;
+    font-family: 'Syncopate', sans-serif;
+    color: red;
 }
 
 .btn-div{
