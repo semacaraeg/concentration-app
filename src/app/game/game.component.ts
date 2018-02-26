@@ -16,10 +16,12 @@ import {
 })
 
 export class GameComponent implements OnInit {
-  memory_cards = [];
-  user_pick_counter = 0;
-  user_cards = [];
-  deck = 52; 
+  
+  deckCards :any[] = [];
+  flipCounter : number = 0;
+  flippedCards : any[] = [];
+  deck : number = 52; 
+  buttonLabel : string = "Start a New Game";
   
   constructor(private _cards: CardService) { }
 
@@ -28,35 +30,36 @@ export class GameComponent implements OnInit {
   }
 
   newGame(){
+    this.buttonLabel = "RESET GAME"
     this.reset();
-    console.log(this._cards.cardDeck.cards.length);
+   
     for (let item of this._cards.cardDeck.cards) {
-    this.memory_cards.push({id:item.code, value: item.value, img:item.image, isFlipped: false, isMatched: false});
+        this.deckCards.push({id:item.code, value: item.value, img:item.image, isFlipped: false, isMatched: false});
     }
-    console.log(this.memory_cards)
+    //console.log(this.selectedCards)
    }
    
   selectCard(card: any, card_index: number){
-    if(this.user_pick_counter <= 2 && this.memory_cards[card_index].isFlipped == false){
-      this.memory_cards[card_index].isFlipped = true
-      this.user_pick_counter++
-      this.user_cards.push({cardValue: card.value, card_memory_index : card_index})
+      
+    if(this.flipCounter <= 2 && this.deckCards[card_index].isFlipped == false){
+      this.deckCards[card_index].isFlipped = true
+      this.flipCounter++
+      this.flippedCards.push({cardValue: card.value, card_memory_index : card_index})
       console.log("User selected : "+ card, card_index)
     }
-    if(this.user_pick_counter == 2){
-      this.compareCard(this.user_cards[0], this.user_cards[1])
+    if(this.flipCounter == 2){
+      this.compareCard(this.flippedCards[0], this.flippedCards[1])
     }
   }
-  
   
    compareCard(card_one : any, card_two: any){
      console.log(card_one.value, card_two.value)
      if(card_one.cardValue == card_two.cardValue){
        console.log("CARDS MATCHED")
        setTimeout(()=>{
-        this.memory_cards[card_one.card_memory_index].isMatched = true
-        this.memory_cards[card_two.card_memory_index].isMatched = true
-       },1000)
+        this.deckCards[card_one.card_memory_index].isMatched = true
+        this.deckCards[card_two.card_memory_index].isMatched = true
+       },700)
   
        this.deck -=2
        
@@ -70,21 +73,21 @@ export class GameComponent implements OnInit {
        // this.cardsMatched(card_one, card_two);
      }else{
        setTimeout(()=>{
-          this.memory_cards[card_one.card_memory_index].isFlipped = false;
-          this.memory_cards[card_two.card_memory_index].isFlipped = false;
-         }, 1000)
+          this.deckCards[card_one.card_memory_index].isFlipped = false;
+          this.deckCards[card_two.card_memory_index].isFlipped = false;
+         }, 700)
        console.log("CARDS DO NOT MATCH!!!!")
      }
-     this.user_pick_counter = 0
-     this.user_cards = []
+     this.flipCounter = 0
+     this.flippedCards = []
      console.log(this.deck)
      //console.log(this.memory_cards);
    }
    
    reset(){
      this._cards.getCards()
-     this.memory_cards = [];
-     this.user_pick_counter = 0;
-     this.user_cards = [];
+     this.deckCards = [];
+     this.flipCounter = 0;
+     this.flippedCards = [];
    }
 }

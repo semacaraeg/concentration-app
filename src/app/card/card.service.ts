@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 export class CardService {
   
   cardDeck: any ;
-  
+  cardDeckId : string;
   
   constructor(private http: HttpClient) { 
   }
@@ -25,6 +25,8 @@ export class CardService {
            this.cardDeck = res 
            console.log("CARD SERVICE"+this.cardDeck)
        })
+       this.cardDeckId = this.cardDeck.deck_id;
+       //console.log("deck-id: " + this.cardDeckId);
    }
-  
+   
 }

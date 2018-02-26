@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { CardComponent } from './card/card.component';
 import { GameComponent } from './game/game.component';
 import { CardService } from './card/card.service';
 
@@ -12,7 +11,6 @@ import { CardService } from './card/card.service';
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent,
     GameComponent
   ],
   imports: [

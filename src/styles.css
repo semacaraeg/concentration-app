@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+    background-color: #154360;
+}
+
+body{
+    font-family: 'Syncopate', sans-serif;
+}
