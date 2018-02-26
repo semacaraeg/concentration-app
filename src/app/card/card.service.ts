@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Card } from './card';
 
 @Injectable()
 export class CardService {
@@ -27,4 +26,5 @@ export class CardService {
            console.log("CARD SERVICE"+this.cardDeck)
        })
    }
+  
 }
