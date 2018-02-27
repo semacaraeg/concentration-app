@@ -28,9 +28,14 @@ export class GameService {
      this.cardsMatched = 0;
      
      this.getCards();
-     
     for (let item of this._cards.cardDeck.cards) {
-        this.deckCards.push({id:item.code, value: item.value, img:item.image, isFlipped: false, isMatched: false, flip: "inactive"});
+        this.deckCards.push({
+            id:item.code, 
+            value: item.value, 
+            img:item.image, 
+            isFlipped: false, 
+            isMatched: false, 
+            flip: "inactive"});
     }
     console.log(this.deckCards);
    }
