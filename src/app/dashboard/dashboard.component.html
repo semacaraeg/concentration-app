@@ -1,8 +1,8 @@
 <div class="dashboard-div">
     <img src="../../assets/img/concentration-app.png" class="logo"/>
     <div class="controls">
-        <button (click)="newGame()" class="dashboard-btn">{{ _cards.gameStarted ? 'RESET GAME' : 'START A NEW GAME' }}</button>       
-        <button  (click)="_cards.quit()" class="dashboard-btn" [style.display]="_cards.gameStarted ? 'inline' : 'none'">QUIT GAME</button>
-        <button  class="dashboard-btn" [style.display]="_cards.gameStarted ? 'inline' : 'none'">REMAINING CARDS: {{ (52 - _cards.cardsMatched) }} </button>
+        <button (click)="newGame()" class="dashboard-btn">{{ gameStarted ? 'RESET GAME' : 'START A NEW GAME' }}</button>       
+        <button  (click)="_cards.quit()" class="dashboard-btn" [style.display]="gameStarted ? 'inline' : 'none'">QUIT GAME</button>
+        <button  class="dashboard-btn" [style.display]="gameStarted ? 'inline' : 'none'">REMAINING CARDS: {{ (52 - _cards.cardsMatched) }} </button>
     </div>
 </div>

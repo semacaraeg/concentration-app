@@ -7,6 +7,7 @@ import { GameService } from '../game/game.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  gameStarted = false;
   
   constructor(private _cards: GameService) { }
 
@@ -15,7 +16,6 @@ export class DashboardComponent implements OnInit {
   
   newGame(){
     this._cards.newGame();
-    this._cards.gameStarted = true;
+    this.gameStarted = true;
   }
-  
 }
