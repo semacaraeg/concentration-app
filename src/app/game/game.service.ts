@@ -10,6 +10,7 @@ export class GameService {
   flippedCards : any[];
   cardsMatched : number; 
   isGameOver : boolean;
+  gameStarted : boolean;
   
   constructor(private _cards : CardService) { }
   
@@ -25,6 +26,7 @@ export class GameService {
      this.flipCounter = 0;
      this.flippedCards = [];
      this.cardsMatched = 0;
+     
      this.getCards();
      
     for (let item of this._cards.cardDeck.cards) {
@@ -34,6 +36,7 @@ export class GameService {
    }
    
   flipCard(card: any, card_index: number){
+    
     if(this.flipCounter <= 2 && this.deckCards[card_index].isFlipped == false){
       this.deckCards[card_index].isFlipped = true;
       this.flipCounter++;
@@ -42,7 +45,7 @@ export class GameService {
       console.log("User selected : "+ card, card_index);
     }
     
-    if(this.flipCounter == 2){
+    if(this.flipCounter === 2){
       this.compareCard(this.flippedCards[0], this.flippedCards[1]);
     }
     
@@ -86,6 +89,11 @@ export class GameService {
      this.flipCounter = 0;
      this.flippedCards = [];
      this.cardsMatched = 0;
+   }
+   
+   quit(){
+       this.deckCards = [];
+       this.isGameOver = true;
    }
   
 }

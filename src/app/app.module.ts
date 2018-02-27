@@ -8,13 +8,15 @@ import { GameComponent } from './game/game.component';
 import { CardService } from './card/card.service';
 import { GameService } from './game/game.service';
 import { BoardComponent } from './board/board.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    BoardComponent
+    BoardComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

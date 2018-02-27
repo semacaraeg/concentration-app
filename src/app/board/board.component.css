@@ -1,4 +1,6 @@
+
 .cardContainer{
+    width: 100%;
     perspective: 100%;
     display: flex;
     flex-wrap: wrap;

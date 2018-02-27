@@ -4,8 +4,8 @@
   </div>
 </div-->
 
-<div *ngIf = "_cards.deckCards" class="cardContainer">
-  <div *ngFor="let card of _cards.deckCards; let i = index" class="tp-card" (click)="toggleFlip(card, i)" [@flipState]="card.flip">
+<div class="cardContainer">
+  <div *ngFor="let card of _cards.deckCards; let i = index" class="tp-card" (click)="card.isFlipped ? card.isFlipped : toggleFlip(card, i)" [@flipState]="card.flip">
         <div class="tp-card__side tp-card__front" [style.visibility]="card.isMatched ? 'hidden' : 'visible'">
         </div>
         <div class="tp-card__side tp-card__back" [style.background-image] = "'url(' + card.img + ')'" [style.visibility]="card.isMatched ? 'hidden' : 'visible'">

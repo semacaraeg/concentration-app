@@ -1,7 +1,12 @@
-<div class="btn-div">
- <button (click)="_cards.newGame()" class="new-game-button">{{ buttonLabel }}</button> 
- <h2 *ngIf = "_cards.isGameOver" class="gameover">GAME OVER</h2>
+<div id="dashboard-div">
+ <app-dashboard></app-dashboard>
 </div>
+<div id="gameOver-div" [style.display] = "_cards.isGameOver ? 'block' : 'none'">
+    <h2>GAME OVER!!!!</h2>
+</div>
+<app-board class="board-div"></app-board>
+
+
 
 
 
