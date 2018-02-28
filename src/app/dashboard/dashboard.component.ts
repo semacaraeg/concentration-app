@@ -6,9 +6,12 @@ import { GameService } from '../game/game.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
+
   constructor(private _cards: GameService) { }
 
   ngOnInit() {
   }
+  
 }

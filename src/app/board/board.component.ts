@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../game/game.service';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
+import { trigger,state,style,animate,transition } from '@angular/animations';
+
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css'],
   animations: [
+    
     trigger('flipState', [
       state('active', style({
         transform: 'rotateY(179.9deg)'
@@ -22,7 +18,7 @@ import {
       })),
       transition('active => inactive', animate('500ms ease-out')),
       transition('inactive => active', animate('500ms ease-in'))
-    ])  
+    ]),
   ]
 })
 export class BoardComponent implements OnInit {
