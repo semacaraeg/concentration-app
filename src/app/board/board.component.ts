@@ -26,13 +26,13 @@ import {
   ]
 })
 export class BoardComponent implements OnInit {
-
+  
+  
   constructor(private _cards: GameService) { 
-   
   }
 
   ngOnInit() {
-   this._cards.newGame();
+  this._cards.newGame();
   }
   
   toggleFlip(card: any, i:number) {

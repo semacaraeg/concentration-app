@@ -1,45 +1,46 @@
 import { Injectable } from '@angular/core';
 import { CardService } from '../card/card.service';
-
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class GameService {
- 
+
   deckCards :any[];
   flipCounter : number;
   flippedCards : any[];
   cardsMatched : number; 
   isGameOver : boolean;
   gameStarted : boolean;
+  cardsLeft = 52;
   
-  constructor(private _cards : CardService) { }
-  
-  getCards(){
-      this._cards.getCards();
+  constructor(private _cards : CardService) { 
+      //this.getCards();
   }
   
+  getCards(){
+     this._cards.apiGetCards()
+        .subscribe((res : any )=> {
+            
+            this.deckCards = res;
+            console.log(this.deckCards);
+    //This line is creating a new Observable which we can use the async pipe one in the html.
+    })
+  }
+  
+
   newGame(){
-      
+
     //initialize values
      this.isGameOver = false;
      this.deckCards = [];
      this.flipCounter = 0;
      this.flippedCards = [];
      this.cardsMatched = 0;
-     
      this.getCards();
-    for (let item of this._cards.cardDeck.cards) {
-        this.deckCards.push({
-            id:item.code, 
-            value: item.value, 
-            img:item.image, 
-            isFlipped: false, 
-            isMatched: false, 
-            flip: "inactive"});
-    }
-    console.log(this.deckCards);
-   }
-   
+  } 
+  
+  
   flipCard(card: any, card_index: number){
     
     if(this.flipCounter <= 2 && this.deckCards[card_index].isFlipped == false){
@@ -47,7 +48,7 @@ export class GameService {
       this.flipCounter++;
       this.flippedCards.push({cardValue: card.value, card_memory_index : card_index});
       
-      console.log("User selected : "+ card, card_index);
+      //console.log("User selected : "+ card, card_index);
     }
     
     if(this.flipCounter === 2){
@@ -65,13 +66,14 @@ export class GameService {
      //console.log(card_one.value, card_two.value);
      
      if(card_one.cardValue == card_two.cardValue){
-       console.log("CARDS MATCHED");
+       //console.log("CARDS MATCHED");
        setTimeout(()=>{
         this.deckCards[card_one.card_memory_index].isMatched = true;
         this.deckCards[card_two.card_memory_index].isMatched = true;
        },1000)
   
        this.cardsMatched +=2;
+       this.cardsLeft -=2;
       
      }else{
        setTimeout(()=>{
@@ -85,7 +87,7 @@ export class GameService {
      
      this.flipCounter = 0;
      this.flippedCards = [];
-     console.log("Number of cards matched: " + this.cardsMatched);
+     //console.log("Number of cards matched: " + this.cardsMatched);
    }
    
    reset(){
